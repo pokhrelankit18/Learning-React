@@ -1,0 +1,203 @@
+Git 
+version control system is a tools that helps to track changes in code. Git is a version control system.
+-popular
+-free and open source
+-fast and scalable
+
+Advantages
+-track the history
+-collaborate
+
+Github
+Website that allows developers to store and manage their code using git.
+-we use to upload all our project folder in github as repository(repo) and give our project to others.
+lets make profile on github.
+
+Github:
+GitHub is a Cloud-based hosting service that lets you manage Git repositories from a user interface.
+repository - folder
+commit - changes you made(This is the way github notice your changes)
+
+LETS SETUP OUR GIT
+-download VSC
+-windows(Git Bash)
+-mac(terminal)
+
+Now make an account in github!
+
+--Their is always one main branch
+--Any folder starting with a . is a hidden folder in linux
+--
+
+GIT COMMANDS
+-CLONE AND STATUS
+clone- cloning a repository on our local machine
+command - git clone links
+
+status 
+gives status of code
+command - git status 
+
+---------------------------------------------------------
+Note: If you make any changes in your local repository then M symbol is shown which just refer that your code is modified+ (symbol U refers to untracked)
+and is not same as that in your global account
+
+so you need to commit.(You can check your code status in terminal)
+Basically there is four types of status that git status shows:
+-untracked(new files that git doesn't yet track)
+-modified(changed)
+-staged(file is ready to be committed that you just added not committed)
+-unmodified(unchanged)
+
+Now that the code is cloned and you need to commit changes in you github account.
+Their is two step process
+-add
+-commit
+
+ADD AND COMMIT
+add - adds new or changed files in your working directory to the git staging area
+command - git add filename
+Note: to add all files you can type git add . 
+
+commit -- it is the record of change
+command-- git commit-m "some message"
+
+--You just commit some of your updated code but this thing is not showning in your github.
+To show your code you need to push 
+
+PUSH COMMAND
+push- upload local repo content to remote page
+command - git push origin main
+
+lets break down "git push origin main"
+git push -- this pushes the code
+origin - this is the name of the repo we want to push our code to 
+main - name of the branch the we are pushing our commit
+
+----------------------------------------------------------------------------------------
+Senerio: We just code in our local folder and we need to upload it to github!
+Here is how we do it.
+ Init command:(init- used to create a new git repo)
+ command- git init
+ (by doing this you just made hidden git file and by this you can view status)
+ Then just repeat the process
+ -git add .
+ -git commit -m"message here"
+ -git status
+Now you are not going to push anywhere you have to make a new repo so that you can upload your files
+so repeat the same process of making new repo.
+Now that you made new repo in github lets crack some codes here.
+
+Init command(contd..)
+init - used to create a new git repo
+git init 
+git remote add origin <--link-->
+git remote -v
+git branch
+git branch -M main
+git push origin main
+
+
+Description of above code
+git init -- to make a git file in remote repo
+git remote add origin <--link--> -- origin is the name of our remote repo. We can give any name to our remote repo but by default origin is used
+git remote -v -- checks which repository we are going to push
+git branch  -- returns branch name
+(If we need to code in collabration then we need seperate group to code and push our code so these groups are generally refered as a branch)
+git branch -M main -- to rename our branch name to main
+git push origin main --(already explained)
+
+note:(if you are going to work in a same code then you can set upstream meaning you can give your shortform so that it applied to all)
+i.e. just do git push -u origin main then for another time you can just 
+type git push
+PRO TIP: Try making repo and then start coding after cloning is advised
+
+WORKFLOW:
+1)make github repo
+2)clone that repo
+3)do your work
+4)add 
+5)commit with useful message
+6)push 
+
+
+Git Branches
+Senerio: When we code in groups we start with main branch then when we seperate
+our work we need to make small branches to work on seperately then the 
+times comes to mertz our branch and we did so.
+
+Branch Commands:
+
+git branch (to check branch)
+git branch -M main (to rename our branch to main)
+git checkout <-branch name-> (to naviagte through branches)
+git checkout -b <-new branch name-> (to create new branch)
+git branch -d <-branch name-> (to delete branch but you need to be in other branch)
+(Interesting thing is when you push something in your branch then your main file will not have that thing so for main to have you need to mertz your code)
+
+Merging Code:
+
+Way 1:
+git diff <-branch name->  (to compare commits, branches,files and more)
+git merge <-branch name-> (to merge 2 branches : you should merge sitting on main branch)
+
+Way 2:
+Create a PR(Pull Request)
+This is done in github.
+
+PULL REQUEST:
+It lets you tell other about changes you've pushed to a branch in a repository on github.
+
+Senerio: While working on a group there will be many people wanting to push their branches so there must be someone 
+to supervise if that branch has some bugs or not and that is done by requestion supersior to allow your pull i.e requestion pull request.Then 
+senior can check your request and accepts or comment it when neccessary.
+
+How to do ?
+You can just simply click on pull request pop up and go through every lines of code.
+ 
+PULL COMMAND:
+doing push will change our content in github app but not in your remote so to do that
+you need to learn about pull command.
+Used to fetch and download content from remote repo and immediately update the local repo to match that content
+
+command: git pull origin main
+(Note: this thing is vital as a developer you want your main repo to be updated regularly)
+
+Merge Conflicts and resolving it.
+Senerio: A merge conflict example is when two developers work on their dependent branches. Both developers are working on the same file called Feature.js. 
+Each of their tasks is to add a new feature to an existing method. Developer 1 has a branch called feature1, and developer 2 has a branch called feature2.
+If they both pushes the code to main branch then which code to allow and what not?Then conflict occur
+
+An event that takes place when git is unable to automatically resolve differneces in code between
+two commits.Then we have to manually say this code is required and this is not.
+ 
+
+
+UNDOING CHANGES:
+
+case 1: staged changes(added but not committed)
+command -- git reset <-filename-> 
+command -- git reset (i.e.for all files)
+
+case 2: committed changes (for one commit)
+command:  git reset HEAD~1
+(By defult the last commit in github is named head so to reset one head you should give head~1. git log to check all commits)
+
+case 3: committed changes (for many commits)
+command: git log (i.e. to get hash)
+command: git reset <-commit hash--> (to go to that hash)
+command:  git reset --hard <commit hash--> (to change in VSC)
+
+
+FORK:
+A fork is a new repository that shares code and visibility settings with the original "upstream" repository
+Fork is a rough copy
+Senerio: Suppose you and your friend is working on a project and you are late joiner so you need to catch
+them so basically what you can do is just copy all their work in seperate repo and start working.
+
+How to do?
+Just go for fork in options.Nothing much
+
+Git Blame
+--who did what and when
+command-- git blame filename.txt
