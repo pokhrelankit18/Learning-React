@@ -2,6 +2,40 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA"
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D"
+  },
+  {
+    skill: "Web Design",
+    level: "beginner",
+    color: "#C3DCAF"
+  },
+  {
+    skill: "Git and GitHub",
+    level: "intermediate",
+    color: "#E84F33"
+  },
+  {
+    skill: "React",
+    level: "beginner",
+    color: "#60DAFB"
+  },
+  {
+    skill: "Figma",
+    level: "intermediate",
+    color: "pink"
+  }
+];
+
+
 function App() {
   return (
     <div className="card">
@@ -11,7 +45,9 @@ function App() {
         {/* Should contain one Skill component
         for each web dev skill that you have,
         customized with props */}
-        <SkillList/>
+        { skills.map((totalskills) => (
+        <SkillList totalskills={totalskills}/>
+         ))}
       </div>
     </div>
   );
@@ -35,14 +71,11 @@ function Intro() {
   );
 }
 
-function SkillList() {
+function SkillList({totalskills}) {
   return (
     <div className="skill-list">
-      <Skill skill="React" emoji="😎" color="blue"/>
-      <Skill skill="GIT" emoji="😏" color="pink" />
-      <Skill skill="HTML/CSS" emoji="😎"  color="red"/>
-      <Skill skill="Bootstrap" emoji="🍌"  color="grey"/>
-      <Skill skill="Figma" emoji="🤝" color="magenta" />
+      <Skill skill={totalskills.skill} level={totalskills.level} color={totalskills.color}/>
+      
     </div>
   );
 }
@@ -51,7 +84,12 @@ function Skill(props) {
   return (
     <div className="skill" style={{backgroundColor: props.color}}>
       <span>{props.skill}</span>
-      <span>{props.emoji}</span>
+      {/* <span>{props.level === "advanced" ? "😎" : props.level === "beginner" ? "🍌" : "🤝" }</span> */}
+     <span>
+      {props.level === "beginner" && "🍌"}
+      {props.level === "intermediate" && "🤝"}
+      {props.level === "advanced" && "😎"}
+     </span>
     </div>
   );
 }
