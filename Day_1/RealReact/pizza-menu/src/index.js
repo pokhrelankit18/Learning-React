@@ -11,6 +11,13 @@ const pizzaData = [
     soldOut: false,
   },
   {
+    name: "Focaccia",
+    ingredients: "Bread with italian olive oil and rosemary",
+    price: 6,
+    photoName: "pizzas/focaccia.jpg",
+    soldOut: true,
+  },
+  {
     name: "Pizza Margherita",
     ingredients: "Tomato and mozarella",
     price: 10,
@@ -50,7 +57,7 @@ const pizzaData = [
 function App() {
   return (
     <div className="container">
-      <Header />
+      <Header/>
       <Menu />
       <Footer />
     </div>
