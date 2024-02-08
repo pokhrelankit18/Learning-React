@@ -43,7 +43,7 @@ export default function App() {
 }
 
 function FlashCards() {
-  //State to select Id
+  //State to select
   const [selectedId, setSelectedId] = useState();
   
   function handleClick(id)
