@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    padding: 20px;
+  }
+  
+  .flashcards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .flashcards div {
+    border: 1px solid #000000;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(141,42,103,1) 25%, rgba(150,25,25,1) 50%, rgba(52,50,207,1) 78%, rgba(252,176,69,1) 100%);
+    border-radius: 7px;
+    aspect-ratio: 2 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  div.selected {
+    border: 1px solid #040404;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(139,190,123,1) 40%, rgba(192,189,87,1) 68%, rgba(253,187,45,1) 100%);
+    color: #000000;
+    font-weight: bold;
+  }
+  
