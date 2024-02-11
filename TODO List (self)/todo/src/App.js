@@ -27,10 +27,9 @@ export default function App() {
       )
     );
   }
-  function handleClearlist()
-  {
+  function handleClearlist() {
     const confirmed = window.confirm("Clear Schedule?");
-    
+
     if (confirmed) setItems([]);
   }
 
@@ -135,7 +134,7 @@ function Form({ onAddItems }) {
   );
 }
 
-function Display({ items, onDeleteitems, onToggleitems,onclearlist }) {
+function Display({ items, onDeleteitems, onToggleitems, onclearlist }) {
   const [sortBy, setSortBy] = useState("input");
   let sortedItems;
 
@@ -151,7 +150,6 @@ function Display({ items, onDeleteitems, onToggleitems,onclearlist }) {
 
   if (sortBy === "progress")
     sortedItems = items.slice().sort((a, b) => Number(a.done) - Number(b.done));
-
 
   return (
     <div className="list">
