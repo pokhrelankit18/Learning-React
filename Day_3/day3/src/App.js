@@ -11,16 +11,23 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   function handlePrevious() {
-    if(step > 1) {
-    setStep((s) => s-1);
-  }}
+    if (step > 1) {
+      setStep((s) => s - 1);
+    }
+  }
+  function handleMiddle() {
+      setStep((s) => s=2);
+  }
   function handleNext() {
-    if(step < 3) {
-      setStep((s) => s+1);
-    }}
+    if (step < 3) {
+      setStep((s) => s + 1);
+    }
+  }
   return (
     <>
-      <button className="close" onClick={()=> setIsOpen((is) => !is)}>&times;</button>
+      <button className="close" onClick={() => setIsOpen((is) => !is)}>
+        {isOpen ? '❌' : '✔'}
+      </button>
       {isOpen && (
         <div className="steps">
           <div className="numbers">
@@ -32,21 +39,32 @@ export default function App() {
             Step {step} : {messages[step - 1]}
           </p>
           <div className="buttons">
-            <button
-              onClick={handlePrevious}
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-            >
-              Previous
-            </button>
-            <button
-              onClick={handleNext}
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-            >
-              Next
-            </button>
+            <Button textcolor="#fff" bgcolor="#7950f2" onClick={handlePrevious}>
+              {" "}
+              <span>⏪</span>Previous
+            </Button>
+            <Button textcolor="#fff" bgcolor="#7950f2" onClick={handleMiddle}>
+              {" "}
+              Middle<span>🤚</span>
+            </Button>
+            <Button textcolor="#fff" bgcolor="#7950f2" onClick={handleNext}>
+              {" "}
+              Next<span>⏩</span>
+            </Button>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+function Button({ textcolor, bgcolor, onClick, children }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{ backgroundColor: bgcolor, color: textcolor }}
+    >
+      {children}
+    </button>
   );
 }
